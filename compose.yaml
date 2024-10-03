@@ -1,0 +1,12 @@
+services:
+  api:
+    build:
+      context: .
+      target: builder
+    container_name: fastapi-application
+    environment:
+      PORT: 8000
+      RANDOM_CHOICE_SERVICE_URL: "http://host.docker.internal:5000/random/default/choice"
+    ports:
+      - '8000:8000'
+    restart: "no"
